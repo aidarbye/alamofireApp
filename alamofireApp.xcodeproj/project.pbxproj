@@ -10,10 +10,11 @@
 		32CB72CD065FEAD758F68488 /* Pods_alamofireApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D7A0C97C736802C6B3BC136 /* Pods_alamofireApp.framework */; };
 		B4A6A91329A239C500547216 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A6A91229A239C500547216 /* AppDelegate.swift */; };
 		B4A6A91529A239C500547216 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A6A91429A239C500547216 /* SceneDelegate.swift */; };
-		B4A6A91729A239C500547216 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A6A91629A239C500547216 /* ViewController.swift */; };
 		B4A6A91A29A239C500547216 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4A6A91829A239C500547216 /* Main.storyboard */; };
 		B4A6A91C29A239C700547216 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4A6A91B29A239C700547216 /* Assets.xcassets */; };
 		B4A6A91F29A239C700547216 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4A6A91D29A239C700547216 /* LaunchScreen.storyboard */; };
+		B4A6A92C29A2585F00547216 /* api_key.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A6A92B29A2585F00547216 /* api_key.swift */; };
+		B4A6A92E29A2746100547216 /* MainCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A6A92D29A2746100547216 /* MainCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,11 +23,12 @@
 		B4A6A90F29A239C500547216 /* alamofireApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = alamofireApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4A6A91229A239C500547216 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4A6A91429A239C500547216 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B4A6A91629A239C500547216 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B4A6A91929A239C500547216 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B4A6A91B29A239C700547216 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B4A6A91E29A239C700547216 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B4A6A92029A239C700547216 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4A6A92B29A2585F00547216 /* api_key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = api_key.swift; sourceTree = "<group>"; };
+		B4A6A92D29A2746100547216 /* MainCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewController.swift; sourceTree = "<group>"; };
 		DD502F1C61BA6DB5ADCA91CC /* Pods-alamofireApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alamofireApp.release.xcconfig"; path = "Target Support Files/Pods-alamofireApp/Pods-alamofireApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -48,7 +50,6 @@
 				2A5EA20AEE317209243FED89 /* Pods-alamofireApp.debug.xcconfig */,
 				DD502F1C61BA6DB5ADCA91CC /* Pods-alamofireApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -81,15 +82,48 @@
 		B4A6A91129A239C500547216 /* alamofireApp */ = {
 			isa = PBXGroup;
 			children = (
-				B4A6A91229A239C500547216 /* AppDelegate.swift */,
-				B4A6A91429A239C500547216 /* SceneDelegate.swift */,
-				B4A6A91629A239C500547216 /* ViewController.swift */,
-				B4A6A91829A239C500547216 /* Main.storyboard */,
-				B4A6A91B29A239C700547216 /* Assets.xcassets */,
-				B4A6A91D29A239C700547216 /* LaunchScreen.storyboard */,
-				B4A6A92029A239C700547216 /* Info.plist */,
+				B4A6A92A29A23B9800547216 /* Models */,
+				B4A6A92829A23B7B00547216 /* ViewControllers */,
+				B4A6A92929A23B8800547216 /* Screens */,
+				B4A6A92729A23B5D00547216 /* Supports */,
 			);
 			path = alamofireApp;
+			sourceTree = "<group>";
+		};
+		B4A6A92729A23B5D00547216 /* Supports */ = {
+			isa = PBXGroup;
+			children = (
+				B4A6A91229A239C500547216 /* AppDelegate.swift */,
+				B4A6A91429A239C500547216 /* SceneDelegate.swift */,
+				B4A6A91B29A239C700547216 /* Assets.xcassets */,
+				B4A6A92029A239C700547216 /* Info.plist */,
+			);
+			path = Supports;
+			sourceTree = "<group>";
+		};
+		B4A6A92829A23B7B00547216 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B4A6A92D29A2746100547216 /* MainCollectionViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B4A6A92929A23B8800547216 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				B4A6A91829A239C500547216 /* Main.storyboard */,
+				B4A6A91D29A239C700547216 /* LaunchScreen.storyboard */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		B4A6A92A29A23B9800547216 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B4A6A92B29A2585F00547216 /* api_key.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,8 +241,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4A6A91729A239C500547216 /* ViewController.swift in Sources */,
 				B4A6A91329A239C500547216 /* AppDelegate.swift in Sources */,
+				B4A6A92E29A2746100547216 /* MainCollectionViewController.swift in Sources */,
+				B4A6A92C29A2585F00547216 /* api_key.swift in Sources */,
 				B4A6A91529A239C500547216 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,7 +394,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BVXR3NMJ8K;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = alamofireApp/Info.plist;
+				INFOPLIST_FILE = alamofireApp/Supports/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -391,7 +426,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BVXR3NMJ8K;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = alamofireApp/Info.plist;
+				INFOPLIST_FILE = alamofireApp/Supports/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
