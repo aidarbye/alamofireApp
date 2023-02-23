@@ -8,6 +8,7 @@
 import UIKit
 
 class MainViewController: UIViewController {
+    @IBOutlet weak var MainCollectionView: UICollectionView!
     var cities: [City] = []
     private var shouldEndEditing = true
     @IBOutlet weak var textField: UITextField! {
@@ -95,11 +96,12 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         return cities.count
     }
     func addNewCity(_ text: String) {
-        guard let text = textField.text else { return }
         cities.append(City(name: text,
                            temp_min: "15",
                            temp_max: "15",
                            temp: "23"))
-        
+        DispatchQueue.main.async {
+            self.MainCollectionView.reloadData()
+        }
     }
 }

@@ -114,6 +114,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="MainCollectionView" destination="0JN-Ax-hHi" id="jmp-2j-JjM"/>
                         <outlet property="textField" destination="QU5-y8-nOx" id="VyY-WW-pGv"/>
                     </connections>
                 </viewController>
