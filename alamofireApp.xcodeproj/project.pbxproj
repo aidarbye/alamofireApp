@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		32CB72CD065FEAD758F68488 /* Pods_alamofireApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D7A0C97C736802C6B3BC136 /* Pods_alamofireApp.framework */; };
+		B444C61029A7836F00946E33 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = B444C60F29A7836F00946E33 /* City.swift */; };
 		B4A6A91329A239C500547216 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A6A91229A239C500547216 /* AppDelegate.swift */; };
 		B4A6A91529A239C500547216 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A6A91429A239C500547216 /* SceneDelegate.swift */; };
 		B4A6A91A29A239C500547216 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4A6A91829A239C500547216 /* Main.storyboard */; };
@@ -15,11 +16,13 @@
 		B4A6A91F29A239C700547216 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4A6A91D29A239C700547216 /* LaunchScreen.storyboard */; };
 		B4A6A92C29A2585F00547216 /* api_key.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A6A92B29A2585F00547216 /* api_key.swift */; };
 		B4A6A92E29A2746100547216 /* MainCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A6A92D29A2746100547216 /* MainCollectionViewController.swift */; };
+		B4A6A95629A76A4800547216 /* WeatherCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A6A95529A76A4800547216 /* WeatherCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2A5EA20AEE317209243FED89 /* Pods-alamofireApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alamofireApp.debug.xcconfig"; path = "Target Support Files/Pods-alamofireApp/Pods-alamofireApp.debug.xcconfig"; sourceTree = "<group>"; };
 		2D7A0C97C736802C6B3BC136 /* Pods_alamofireApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_alamofireApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B444C60F29A7836F00946E33 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		B4A6A90F29A239C500547216 /* alamofireApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = alamofireApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4A6A91229A239C500547216 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4A6A91429A239C500547216 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -29,6 +32,7 @@
 		B4A6A92029A239C700547216 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4A6A92B29A2585F00547216 /* api_key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = api_key.swift; sourceTree = "<group>"; };
 		B4A6A92D29A2746100547216 /* MainCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewController.swift; sourceTree = "<group>"; };
+		B4A6A95529A76A4800547216 /* WeatherCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCollectionViewCell.swift; sourceTree = "<group>"; };
 		DD502F1C61BA6DB5ADCA91CC /* Pods-alamofireApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alamofireApp.release.xcconfig"; path = "Target Support Files/Pods-alamofireApp/Pods-alamofireApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				B4A6A92D29A2746100547216 /* MainCollectionViewController.swift */,
+				B4A6A95529A76A4800547216 /* WeatherCollectionViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -122,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				B4A6A92B29A2585F00547216 /* api_key.swift */,
+				B444C60F29A7836F00946E33 /* City.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -241,7 +247,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4A6A95629A76A4800547216 /* WeatherCollectionViewCell.swift in Sources */,
 				B4A6A91329A239C500547216 /* AppDelegate.swift in Sources */,
+				B444C61029A7836F00946E33 /* City.swift in Sources */,
 				B4A6A92E29A2746100547216 /* MainCollectionViewController.swift in Sources */,
 				B4A6A92C29A2585F00547216 /* api_key.swift in Sources */,
 				B4A6A91529A239C500547216 /* SceneDelegate.swift in Sources */,
