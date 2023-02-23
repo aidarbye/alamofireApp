@@ -17,9 +17,9 @@ class WeatherCollectionViewCell: UICollectionViewCell {
     }
     func configure(with city: City) {
         nameOfTheCity.text = city.name
-        tempOfTheCity.text = city.temp
-        maxTempOfTheCity.text = city.temp_max
-        minTempOfTheCity.text = city.temp_min
+        tempOfTheCity.text = "\(String(city.temp!))K"
+        maxTempOfTheCity.text = "Макс:\(String(city.temp_max!))K"
+        minTempOfTheCity.text = "Мин:\(String(city.temp_min!))K"
     }
     
 }

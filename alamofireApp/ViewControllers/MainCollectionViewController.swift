@@ -4,7 +4,7 @@
 //
 //  Created by Айдар Нуркин on 19.02.2023.
 //
-
+import Alamofire
 import UIKit
 
 class MainViewController: UIViewController {
@@ -42,7 +42,6 @@ class MainViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         view.addGestureRecognizer(tapGesture)
         
-        
     }
     @IBAction func ThreeDotsItemAction(_ sender: Any) {
         
@@ -61,7 +60,7 @@ extension MainViewController: UITextFieldDelegate {
         shouldEndEditing = false
         textField.resignFirstResponder()
         if let text = textField.text {
-            addNewCity(text)
+            addNewCity(name: text)
             print(text)
         }
         return true
@@ -70,7 +69,7 @@ extension MainViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
         if shouldEndEditing {
             if let text = textField.text {
-                addNewCity(text)
+                addNewCity(name: text)
                 print(text)
             }
         }
@@ -84,24 +83,51 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! WeatherCollectionViewCell
         let city = cities[indexPath.row]
         cell.configure(with: city)
-        collectionView.reloadItems(at: [indexPath])
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.bounds.width
-        let height = collectionView.bounds.height / 6
+        let height = collectionView.bounds.height / 6.5
         return CGSize(width: width, height: height)
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cities.count
     }
-    func addNewCity(_ text: String) {
-        cities.append(City(name: text,
-                           temp_min: "15",
-                           temp_max: "15",
-                           temp: "23"))
-        DispatchQueue.main.async {
-            self.MainCollectionView.reloadData()
+    func addNewCity(name: String) {
+        if name != "" {
+            alamofireGet(cityname: name)
         }
     }
 }
+
+//MARK: Alamofire
+extension MainViewController {
+    func alamofireGet(cityname: String) {
+        AF.request("https://api.openweathermap.org/data/2.5/weather?q=\(cityname)&appid=\(apiKey)")
+            .validate()
+            .responseJSON { dataResponse in
+                switch dataResponse.result {
+                case .success(let value):
+                    if let json = value as? [String : Any] {
+                        let new_city = City(from: json)
+                        self.cities.append(new_city)
+                        DispatchQueue.main.async {
+                            self.MainCollectionView.reloadData()
+                            self.textField.text = nil
+                        }
+                        print(new_city)
+
+                    }
+                case .failure(let error):
+                    print(error)
+                    let alert = UIAlertController(title: nil, message: "Wrong", preferredStyle: .alert)
+                    let cancel = UIAlertAction(title: "OK", style: .cancel)
+                    alert.addAction(cancel)
+                    self.present(alert, animated: true)
+                    self.textField.text = nil
+                    
+                }
+            }
+        }
+}
+
