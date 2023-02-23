@@ -1,3 +1,4 @@
+let apiKey = "3fc3bc971616515ad41319a582373ef9"
 
 struct City: Decodable {
     let name: String?

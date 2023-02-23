@@ -8,54 +8,46 @@ import Alamofire
 import UIKit
 
 class MainViewController: UIViewController {
+    // MARK: Properties
     @IBOutlet weak var MainCollectionView: UICollectionView!
+    @IBOutlet weak var textField: UITextField! { didSet { setTextFieldUI() } }
     var cities: [City] = []
     private var shouldEndEditing = true
-    @IBOutlet weak var textField: UITextField! {
-        didSet {
-            let leftImage = UIImageView(frame: CGRect(x: 8,
-                                                      y: 12,
-                                                      width: 27,
-                                                      height: 25))
-            leftImage.tintColor = .white
-            leftImage.image = UIImage(systemName: "magnifyingglass")
-            let leftView = UIView(frame: CGRect(x: 0,
-                                                y: 0,
-                                                width: 35,
-                                                height: 50))
-            leftView.addSubview(leftImage)
-            textField.leftViewMode = .always
-            textField.leftView = leftView
-        
-            textField.attributedPlaceholder = NSAttributedString(
-                string: "Поиск города",
-                attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
-            textField.layer.cornerRadius = 15
-            textField.layer.masksToBounds = true
-        }
-    }
     
-    
+    // MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        textField.delegate = self
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         view.addGestureRecognizer(tapGesture)
-        
-    }
-    @IBAction func ThreeDotsItemAction(_ sender: Any) {
-        
     }
 }
-
-
 // MARK: TextField Delegate
 extension MainViewController: UITextFieldDelegate {
+    func setTextFieldUI() {
+        let leftImage = UIImageView(frame: CGRect(x: 8,
+                                                  y: 12,
+                                                  width: 27,
+                                                  height: 25))
+        leftImage.tintColor = .white
+        leftImage.image = UIImage(systemName: "magnifyingglass")
+        let leftView = UIView(frame: CGRect(x: 0,
+                                            y: 0,
+                                            width: 35,
+                                            height: 50))
+        leftView.addSubview(leftImage)
+        textField.leftViewMode = .always
+        textField.leftView = leftView
     
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "Поиск города",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        textField.layer.cornerRadius = 15
+        textField.layer.masksToBounds = true
+        textField.delegate = self
+    }
     @objc func hideKeyboard(){
         view.endEditing(true)
     }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         shouldEndEditing = false
         textField.resignFirstResponder()
@@ -65,7 +57,6 @@ extension MainViewController: UITextFieldDelegate {
         }
         return true
     }
-    
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
         if shouldEndEditing {
             if let text = textField.text {
@@ -75,7 +66,6 @@ extension MainViewController: UITextFieldDelegate {
         }
         shouldEndEditing = true
     }
-    
 }
 // MARK: Collection Delegate
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -99,7 +89,6 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
     }
 }
-
 //MARK: Alamofire
 extension MainViewController {
     func alamofireGet(cityname: String) {
@@ -130,4 +119,3 @@ extension MainViewController {
             }
         }
 }
-

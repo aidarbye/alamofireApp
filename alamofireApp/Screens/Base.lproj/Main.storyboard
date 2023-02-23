@@ -72,6 +72,7 @@
                                                 <constraint firstItem="SKr-ye-L6U" firstAttribute="top" secondItem="ab6-p8-CAX" secondAttribute="top" constant="24" id="Afm-a2-bLO"/>
                                                 <constraint firstItem="KNu-Zd-x6y" firstAttribute="centerX" secondItem="ab6-p8-CAX" secondAttribute="centerX" id="CoO-Il-lXL"/>
                                                 <constraint firstItem="KNu-Zd-x6y" firstAttribute="centerY" secondItem="ab6-p8-CAX" secondAttribute="centerY" constant="32" id="N2i-oN-MVs"/>
+                                                <constraint firstItem="bTF-l9-Imv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="SKr-ye-L6U" secondAttribute="trailing" constant="8" symbolic="YES" id="Uf2-sI-Z3e"/>
                                                 <constraint firstItem="8wz-cS-Ao9" firstAttribute="centerX" secondItem="ab6-p8-CAX" secondAttribute="centerX" constant="124" id="iLA-Ie-0oA"/>
                                                 <constraint firstAttribute="trailing" secondItem="bTF-l9-Imv" secondAttribute="trailing" constant="29" id="kQP-IC-fT7"/>
                                                 <constraint firstItem="8wz-cS-Ao9" firstAttribute="centerY" secondItem="ab6-p8-CAX" secondAttribute="centerY" constant="32" id="sBL-jI-l2g"/>
@@ -104,11 +105,8 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Погода" id="pRE-Th-HnT">
-                        <barButtonItem key="rightBarButtonItem" image="ellipsis.circle" catalog="system" id="Jm3-ul-azB">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="ellipsis.circle" catalog="system" id="Jm3-ul-azB">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="ThreeDotsItemAction:" destination="hoy-Ii-5xF" id="aj0-aZ-sxE"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
