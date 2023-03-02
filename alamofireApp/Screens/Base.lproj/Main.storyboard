@@ -104,11 +104,7 @@
                             <constraint firstItem="MFZ-Nk-M9R" firstAttribute="trailing" secondItem="QU5-y8-nOx" secondAttribute="trailing" constant="20" id="omg-d9-0Hv"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Погода" id="pRE-Th-HnT">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="ellipsis.circle" catalog="system" id="Jm3-ul-azB">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Погода" id="pRE-Th-HnT"/>
                     <connections>
                         <outlet property="MainCollectionView" destination="0JN-Ax-hHi" id="jmp-2j-JjM"/>
                         <outlet property="textField" destination="QU5-y8-nOx" id="VyY-WW-pGv"/>
@@ -142,7 +138,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ellipsis.circle" catalog="system" width="128" height="123"/>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

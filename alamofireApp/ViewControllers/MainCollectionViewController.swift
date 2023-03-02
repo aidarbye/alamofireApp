@@ -12,13 +12,62 @@ class MainViewController: UIViewController {
     @IBOutlet weak var MainCollectionView: UICollectionView!
     @IBOutlet weak var textField: UITextField! { didSet { setTextFieldUI() } }
     var cities: [City] = []
+    private var Far_or_Cel: Bool = false
     private var shouldEndEditing = true
-    
+    private var topMenu = UIMenu()
     // MARK: ViewDidLoad
     override func viewDidLoad() {
-        super.viewDidLoad()
+        setupMenu()
+        setupNavigationBar()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         view.addGestureRecognizer(tapGesture)
+    }
+}
+private extension MainViewController {
+    func setupMenu() {
+        let F = UIAction(title: "Фаренгейты", image: UIImage(systemName: "f.circle")) {_ in
+            if self.Far_or_Cel {
+                self.Far_or_Cel = false
+                var new_cities:[City] = []
+                for i in self.cities {
+                    let city = City(name: i.name,
+                                    temp_min: i.temp_min! + 273.0,
+                                    temp_max: i.temp_max! + 273.0,
+                                    temp: i.temp! + 273.0)
+                    new_cities.append(city)
+                }
+                self.cities = new_cities
+                self.MainCollectionView.reloadData()
+            }
+        }
+        let C = UIAction(title: "Цельсий", image: UIImage(systemName: "c.circle")) {_ in
+            if !self.Far_or_Cel {
+                self.Far_or_Cel = true
+                var new_cities:[City] = []
+                for i in self.cities {
+                    let city = City(name: i.name,
+                                    temp_min: i.temp_min! - 273.0,
+                                    temp_max: i.temp_max! - 273.0,
+                                    temp: i.temp! - 273.0)
+                    new_cities.append(city)
+                }
+                self.cities = new_cities
+                self.MainCollectionView.reloadData()
+            }
+        }
+        let D = UIAction(title: "Удалить",
+                         image: UIImage(systemName: "minus.circle"),
+                         attributes: .destructive) { _ in
+            self.cities = []
+            self.MainCollectionView.reloadData()
+        }
+        topMenu = UIMenu(title: "Options", children: [F,C,D])
+    }
+    func setupNavigationBar() {
+        let barItemRight = UIBarButtonItem(image: UIImage(systemName: "list.bullet"), menu: topMenu)
+        navigationItem.rightBarButtonItem = barItemRight
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 }
 // MARK: TextField Delegate
@@ -98,7 +147,12 @@ extension MainViewController {
                 switch dataResponse.result {
                 case .success(let value):
                     if let json = value as? [String : Any] {
-                        let new_city = City(from: json)
+                        var new_city = City(from: json)
+                        if self.Far_or_Cel {
+                            new_city.temp! -= 273.0
+                            new_city.temp_max! -= 273.0
+                            new_city.temp_min! -= 273.0
+                        }
                         self.cities.append(new_city)
                         DispatchQueue.main.async {
                             self.MainCollectionView.reloadData()
